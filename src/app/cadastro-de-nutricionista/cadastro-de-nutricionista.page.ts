@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-cadastro-de-nutricionista',
@@ -15,13 +16,15 @@ export class CadastroDeNutricionistaPage implements OnInit {
   formGroup : FormGroup;
 
   constructor(private formBuilder : FormBuilder, 
-    private router : Router) {
+    private router : Router,
+    public fire : AngularFireAuth) {
 
       this.formGroup = this.formBuilder.group({
         nome : [''],
         endereco : [''],
         telefone : [''],
         email : [''],
+        senha : [''],
      });
 
     }
@@ -29,17 +32,22 @@ export class CadastroDeNutricionistaPage implements OnInit {
   ngOnInit() {
   }
   
+  executarCadastro(){
+    let ref = this.firestore.collection('nutricionista').doc(this.fire.auth.currentUser.uid);
+    ref.get().then(doc => {
+     
+      console.log(doc.data());
+    });
+
+  }
+
   cadastrar(){
-    console.log('ok');
-    let ref = this.firestore.collection('nutricionista')
-    ref.add(this.formGroup.value)
-      .then(() =>{
-        console.log('Cadastrado com sucesso');
-        this.router.navigate(['/list']);
-      }).catch(()=>{
-        console.log('Erro ao cadastrar');
-      })
-    }
+    let ref = this.firestore.collection('nutricionista').doc(this.fire.auth.currentUser.uid).set(this.formGroup.value).then(function(){
+      console.log('Cadastrado com sucesso');
+    }).catch(function(){
+      console.log('Erro ao cadastrar');
+    })
+  }
 
   Home() {
     this.router.navigate(['/list']);

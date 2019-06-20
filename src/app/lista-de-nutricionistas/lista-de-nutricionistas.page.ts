@@ -44,7 +44,15 @@ export class ListaDeNutricionistasPage implements OnInit {
         let c = new Nutricionista();
         c.setDados(doc.data());
         c.id = doc.id;
-        this.listaDeNutricionistas.push(c);
+
+        let ref = firebase.storage().ref().child(`nutri/${doc.id}.jpg`).getDownloadURL().then(url => {
+          c.imagem = url;
+
+          this.listaDeNutricionistas.push(c);
+        })
+        .catch(err=>{
+         this.listaDeNutricionistas.push(c);
+         })
       });
     });
   }

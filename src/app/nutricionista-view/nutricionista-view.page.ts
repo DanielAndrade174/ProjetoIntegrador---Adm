@@ -34,6 +34,7 @@ export class NutricionistaViewPage implements OnInit {
       endereco: [this.nutricionista.endereco],
       telefone: [this.nutricionista.telefone],
       email: [this.nutricionista.email],
+      senha: [this.nutricionista.senha],
     });
   }
 
@@ -70,7 +71,7 @@ export class NutricionistaViewPage implements OnInit {
     let imagem = event.srcElement.files[0];
     //console.log(imagem.name);
     let ref = firebase.storage().ref()
-      .child(`nutris/${this.id}.jpg`);
+      .child(`nutri/${this.id}.jpg`);
 
     ref.put(imagem).then(url => {
       console.log("Enviado com sucesso!");
@@ -81,11 +82,15 @@ export class NutricionistaViewPage implements OnInit {
 
   downloadFoto() {
     let ref = firebase.storage().ref()
-      .child(`nutris/${this.nutricionista.id}.jpg`);
+      .child(`nutri/${this.id}.jpg`);
 
     ref.getDownloadURL().then(url => {
       this.imagem = url;
     })
+  }
+
+  Home() {
+    this.router.navigate(['/lista-de-nutricionistas']);
   }
 
 
