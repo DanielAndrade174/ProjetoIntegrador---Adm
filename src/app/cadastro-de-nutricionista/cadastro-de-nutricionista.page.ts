@@ -30,6 +30,7 @@ export class CadastroDeNutricionistaPage implements OnInit {
     }
 
   ngOnInit() {
+    
   }
   
   executarCadastro(){
