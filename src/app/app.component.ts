@@ -31,7 +31,17 @@ export class AppComponent {
       title: 'Lista de Nutricionistas',
       url: '/lista-de-nutricionistas',
       icon: 'book'
-    }
+    },
+    {
+      title: 'Cadastro de Usuario',
+      url: '/cadastro-de-usuario',
+      icon: 'body'
+    },
+    {
+      title: 'Lista de Usuarios',
+      url: '/lista-de-usuarios',
+      icon: 'book'
+    },
   ];
 // 
   constructor(

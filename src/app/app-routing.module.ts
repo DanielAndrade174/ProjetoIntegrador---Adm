@@ -25,7 +25,13 @@ const routes: Routes = [
   { path: 'lista-de-nutricionistas', loadChildren: './lista-de-nutricionistas/lista-de-nutricionistas.module#ListaDeNutricionistasPageModule' },
   { path: 'nutricionista-view', loadChildren: './nutricionista-view/nutricionista-view.module#NutricionistaViewPageModule' },
   { path: 'perfil-nutri', loadChildren: './perfil-nutri/perfil-nutri.module#PerfilNutriPageModule' },
-  { path: 'chat-nutri', loadChildren: './chat-nutri/chat-nutri.module#ChatNutriPageModule' },
+  { path: 'chat-nutri', loadChildren: './chat-nutri/chat-nutri.module#ChatNutriPageModule' },  { path: 'cadastro-de-usuario', loadChildren: './cadastro-de-usuario/cadastro-de-usuario.module#CadastroDeUsuarioPageModule' },
+  { path: 'lista-de-usuarios', loadChildren: './lista-de-usuarios/lista-de-usuarios.module#ListaDeUsuariosPageModule' },
+  { path: 'perfil-usuario', loadChildren: './perfil-usuario/perfil-usuario.module#PerfilUsuarioPageModule' },
+  { path: 'usuario-view', loadChildren: './usuario-view/usuario-view.module#UsuarioViewPageModule' },
+  { path: 'chat-usuario', loadChildren: './chat-usuario/chat-usuario.module#ChatUsuarioPageModule' },
+
+
 
 ];
 

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="success">
+      <ion-icon (click)="Home()" slot="start" name="arrow-back" class="iconeconf"></ion-icon>
+      <ion-title>Atualizar perfil do usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="{{imagem}}">
+  <form [formGroup]="formGroup">
+
+      <ion-item>
+          <input type="file" (change)="enviaArquivo($event)" />
+      </ion-item>
+
+
+      <ion-list>
+          <ion-item>
+              <ion-label floating>Nome</ion-label>
+              <ion-input formControlName="nome" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Endereço</ion-label>
+              <ion-input formControlName="endereco" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Telefone</ion-label>
+              <ion-input formControlName="telefone" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>E-mail</ion-label>
+              <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Senha</ion-label>
+              <ion-input formControlName="senha" type="text"></ion-input>
+          </ion-item>
+      </ion-list>
+      <ion-button expand="full" (click)="atualizar()">Atualizar</ion-button>
+  </form>
+</ion-content>
